@@ -36,13 +36,23 @@ namespace Dagbok1
                     case "1":
                         Console.WriteLine("Skriv din anteckning: ");
                         string text = Console.ReadLine();
-                        DiaryEntry newEntry = new DiaryEntry
+
+                        if (string.IsNullOrWhiteSpace(text)) 
                         {
-                            Date = DateTime.Now,
-                            Text = text
-                        };
-                        diaryEntries.Add(newEntry); 
+                            Console.WriteLine("Anteckningen får inte vara tom.");
+                        }
+                        else
+                        {
+                            
+                            DiaryEntry newEntry = new DiaryEntry
+                            {
+                                Date = DateTime.Now,
+                                Text = text
+                            };
+                            diaryEntries.Add(newEntry); 
+                        }
                         break;
+
 
 
                     case "2":
