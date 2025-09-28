@@ -19,10 +19,10 @@
 
                     Console.WriteLine("\nVad vill du skriva om idag?");
                     Console.WriteLine();
-                    Console.WriteLine("1. Dagens kännsla?");
-                    Console.WriteLine("2.Skoldagen – vad gjorde du?");
-                    Console.WriteLine("3. Något roligt eller oväntat som hände?");
-                    Console.WriteLine("4. Visa tidigare inlägg");
+                    Console.WriteLine("1. Skriv ny anteckning?");
+                    Console.WriteLine("2. Lista alla anteckningar?");
+                    Console.WriteLine("3. Sök anteckning på datum?");
+                    Console.WriteLine("4. Läs från fil");
                     Console.WriteLine("5. Avsluta dagboken");
 
                     Console.Write("\nDitt val: ");
