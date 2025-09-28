@@ -73,11 +73,13 @@ namespace Dagbok1
                             Console.WriteLine("Ogiltigt datumformat.");
                         }
                         break;
+
                     case "4":
 
-
-                        Console.WriteLine("Funktionen för att läsa från fil är inte implementerad än.");
+                        DagbokHanterare.LäsDagbokFil(diaryEntries); 
                         break;
+
+               
                     case "5":
 
 

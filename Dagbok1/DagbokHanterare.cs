@@ -37,5 +37,22 @@ namespace Dagbok1
             }
 
         }
+            public static void SparaDagbokFil(List<DiaryEntry> diaryEntries)
+        {
+            string filName = "minDagbok.txt";
+
+            // Skapa en lista med rader i rätt format
+            List<string> lines = new List<string>();
+
+            foreach (var entry in diaryEntries)
+            {
+                // Format: "Datum|Text"
+                lines.Add($"{entry.Date}|{entry.Text}");
+            }
+
+            // Skriv alla rader till filen (skriver över filen varje gång)
+            File.WriteAllLines(filName, lines);
+        }
+
     }
 }
