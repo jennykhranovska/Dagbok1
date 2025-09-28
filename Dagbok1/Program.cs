@@ -22,7 +22,8 @@ namespace Dagbok1
                 Console.WriteLine("2. Lista alla anteckningar?");
                 Console.WriteLine("3. Sök anteckning på datum?");
                 Console.WriteLine("4. Läs från fil");
-                Console.WriteLine("5. Avsluta dagboken");
+                Console.WriteLine("5. Spara till fil");
+                Console.WriteLine("6. Avsluta dagboken");
 
                 Console.Write("\nDitt val: ");
 
@@ -38,17 +39,28 @@ namespace Dagbok1
                             Date = DateTime.Now,
                             Text = text
                         };
-                        diaryEntries.Add(newEntry);
-                        Console.WriteLine("Anteckning sparad!");
+                        diaryEntries.Add(newEntry); 
                         break;
 
+
                     case "2":
-                        Console.WriteLine("Alla anteckningar:");
-                        foreach (var entry in diaryEntries)
+
+                        if (diaryEntries.Count == 0)
                         {
-                            Console.WriteLine($"{entry.Date}: {entry.Text}");
+                            Console.WriteLine("Det finns inga anteckningar ännu.");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Alla anteckningar:");
+                            foreach (var entry in diaryEntries)
+                            {
+                                Console.WriteLine($"{entry.Date}: {entry.Text}");
+                            }
                         }
                         break;
+
+
+
                     case "3":
                         Console.WriteLine("Ange datum (YYYY-MM-DD): ");
                         string dateInput = Console.ReadLine();
@@ -75,12 +87,36 @@ namespace Dagbok1
                         break;
 
                     case "4":
-
-                        DagbokHanterare.LäsDagbokFil(diaryEntries); 
+                        DagbokHanterare.LäsDagbokFil(diaryEntries);
+                        if (diaryEntries.Count > 0)
+                        {
+                            Console.WriteLine("Alla anteckningar från filen:");
+                            foreach (var entry in diaryEntries)
+                            {
+                                Console.WriteLine($"{entry.Date}: {entry.Text}");
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("Ingen sparad dagbok finns än.");
+                        }
                         break;
 
-               
-                    case "5":
+
+                        case "5":
+                            try
+                        {
+                            DagbokHanterare.SparaDagbokFil(diaryEntries);
+                            Console.WriteLine("Dagboken har sparats till fil.");
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine("Fel vid sparande: " + ex.Message);
+                        }
+
+                        break;
+
+                    case "6":
 
 
                         Console.WriteLine("Avslutar dagboken. Hej då!");
