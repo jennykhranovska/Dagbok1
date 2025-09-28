@@ -9,9 +9,11 @@ namespace Dagbok1
 
         static void Main(string[] args)
         {
+            Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("------------");
             Console.WriteLine("Min dagbok");
-            Console.WriteLine("-------------");
+            Console.WriteLine("------------");
+            Console.ResetColor();
 
             while (true)
             {
