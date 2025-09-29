@@ -11,18 +11,21 @@ namespace Dagbok1
         {
             DagbokHanterare.LäsDagbokTillFil(diaryEntries);
 
-            Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine("------------");
-            Console.WriteLine("Min dagbok");
-            Console.WriteLine("------------");
-            Console.ResetColor();
-
             while (true)
             {
+
                 Console.Clear();
 
+                Console.ForegroundColor = ConsoleColor.DarkCyan;
+                Console.WriteLine("------------");
+                Console.WriteLine("Min dagbok");
+                Console.WriteLine("------------");
+                Console.ResetColor();
+
+                Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine("\nVad vill du skriva om idag?");
                 Console.WriteLine();
+                Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine("1. Skriv ny anteckning?");
                 Console.WriteLine("2. Lista alla anteckningar?");
                 Console.WriteLine("3. Sök anteckning på datum?");
@@ -30,7 +33,9 @@ namespace Dagbok1
                 Console.WriteLine("5. Spara till fil");
                 Console.WriteLine("6. Avsluta dagboken");
 
+                Console.ForegroundColor = ConsoleColor.DarkCyan;
                 Console.Write("\nDitt val: ");
+                Console.ResetColor();
 
                 var input = Console.ReadLine();
 

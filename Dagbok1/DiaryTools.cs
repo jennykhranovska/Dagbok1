@@ -14,8 +14,11 @@ namespace Dagbok1
 
         {
 
-            Console.WriteLine("Skriv din anteckning: ");
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.WriteLine("Skriv din anteckning:");
+            Console.ResetColor();
             string text = Console.ReadLine();
+
 
             if (string.IsNullOrWhiteSpace(text))
             {
