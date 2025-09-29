@@ -19,6 +19,7 @@ namespace Dagbok1
 
             while (true)
             {
+                Console.Clear();
 
                 Console.WriteLine("\nVad vill du skriva om idag?");
                 Console.WriteLine();
@@ -36,49 +37,51 @@ namespace Dagbok1
                 switch (input)
                 {
                     case "1":
-                 
                         DiaryTools.HanteraVal1(diaryEntries);
+                        Console.WriteLine("\nTryck på valfri tangent för att gå tillbaka till menyn...");
+                        Console.ReadKey();
                         break;
-
 
                     case "2":
-
                         DiaryTools.VisaAllaAnteckningar(diaryEntries);
+                        Console.WriteLine("\nTryck på valfri tangent för att gå tillbaka till menyn...");
+                        Console.ReadKey();
                         break;
-
-
 
                     case "3":
                         DiaryTools.ShowDate(diaryEntries);
+                        Console.WriteLine("\nTryck på valfri tangent för att gå tillbaka till menyn...");
+                        Console.ReadKey();
                         break;
 
                     case "4":
-                        DagbokHanterare.LäsDagbokTillFil(diaryEntries);
-
+                        DagbokHanterare.ReadDiary(diaryEntries);
+                        Console.WriteLine("\nTryck på valfri tangent för att gå tillbaka till menyn...");
+                        Console.ReadKey();
                         break;
 
-
-                        case "5":
-                            DagbokHanterare.SparaDagbokFil(diaryEntries);
-                        
+                    case "5":
+                        DagbokHanterare.SaveDiary(diaryEntries);
+                        Console.WriteLine("\nTryck på valfri tangent för att gå tillbaka till menyn...");
+                        Console.ReadKey();
                         break;
 
                     case "6":
-
-
                         Console.WriteLine("Avslutar dagboken. Hej då!");
                         return;
 
-
                     default:
                         Console.WriteLine("Ogiltigt val, försök igen.");
+                        Console.WriteLine("\nTryck på valfri tangent för att gå tillbaka till menyn...");
+                        Console.ReadKey();
                         break;
-
                 }
             }
 
+
         }
     }
+
 }
 
 

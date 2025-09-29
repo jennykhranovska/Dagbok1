@@ -53,7 +53,16 @@ namespace Dagbok1
 
         public static void ReadDiary(List<DiaryEntry> diaryEntries)
         {
+            string filName = "minDagbok.txt";
+
+            if (!File.Exists(filName))
+            {
+                Console.WriteLine("Filen finns inte: " + Path.GetFullPath(filName));
+                return;
+            }
+
             DagbokHanterare.LäsDagbokTillFil(diaryEntries);
+
             if (diaryEntries.Count > 0)
             {
                 Console.WriteLine("Alla anteckningar från filen:");
@@ -67,6 +76,7 @@ namespace Dagbok1
                 Console.WriteLine("Ingen sparad dagbok finns än.");
             }
         }
+
 
 
         public static void SaveDiary(List<DiaryEntry> diaryEntries)
