@@ -9,7 +9,7 @@ namespace Dagbok1
 {
     internal class DagbokHanterare
     {
-        public static void LäsDagbokFil(List<DiaryEntry> diaryEntries)
+        public static void LäsDagbokTillFil(List<DiaryEntry> diaryEntries)
         {
             string filName = "minDagbok.txt";
 
@@ -34,7 +34,7 @@ namespace Dagbok1
             }
 
         }
-            public static void SparaDagbokFil(List<DiaryEntry> diaryEntries)
+        public static void SparaDagbokFil(List<DiaryEntry> diaryEntries)
         {
             string filName = "minDagbok.txt";
 
@@ -42,12 +42,45 @@ namespace Dagbok1
 
             foreach (var entry in diaryEntries)
             {
-                
+
                 lines.Add($"{entry.Date}|{entry.Text}");
             }
 
             File.WriteAllLines(filName, lines);
         }
 
+
+
+        public static void ReadDiary(List<DiaryEntry> diaryEntries)
+        {
+            DagbokHanterare.LäsDagbokTillFil(diaryEntries);
+            if (diaryEntries.Count > 0)
+            {
+                Console.WriteLine("Alla anteckningar från filen:");
+                foreach (var entry in diaryEntries)
+                {
+                    Console.WriteLine($"{entry.Date}: {entry.Text}");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Ingen sparad dagbok finns än.");
+            }
+        }
+
+
+        public static void SaveDiary(List<DiaryEntry> diaryEntries)
+        {
+            try
+            {
+                DagbokHanterare.SparaDagbokFil(diaryEntries);
+                Console.WriteLine("Dagboken har sparats till fil.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Fel vid sparande: " + ex.Message);
+            }
+
+        }
     }
 }
